@@ -40,10 +40,12 @@ namespace Geometry {
         private:
             std::vector<Vertex> vertices;
             void arangeVertices();
+            void deleteDuplicateVertices();
         public:
             GeometricFigure(Vertex vertices[], int len);
             GeometricFigure(double **arr, int len);
             double calcArea();
             double calcCircumferenceLength();
+            int numberOfVertices();
     };
 } // namespace Geometry
