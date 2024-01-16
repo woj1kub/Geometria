@@ -20,20 +20,25 @@ namespace Geometry {
     class Vertex {
         private:
             double x, y;
-        private:
+        public:
             Vertex() : x(0.0), y(0.0) {}
             Vertex(double x, double y) : x(x), y(y) {}
+            double getX{ return x; }
+            double getY{ return y; }
     };
 
     class Line {
         private:
             Vertex start_point, end_point;
         public:
-            Line(Vertex st_pt, Vertex end_pt);
+            Line(Vertex st_pt, Vertex end_pt) : start_point(st_pt), end_point(end_pt) {}
             Line(double x1, double y1, double x2, double y2);
+            Verterx getStart() { return start_point; };
+            Verterx getEnd() { return end_point; };
             double calcLength();
             Vertex calcCrosspoint(Line &secondLine);
             bool vertexOnLine(Vertex &vertex);
+
     };
 
     class GeometricFigure {
