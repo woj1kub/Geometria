@@ -37,17 +37,35 @@ namespace Geometry
 
     double GeometricFigure::calcArea()
     {
-        return 0.0;
+        int nextIndex = 0;
+        double area = 0;
+        for (Vertex v : vertices)
+        {
+            nextIndex++;
+            nextIndex %= vertices.size();
+            area += (v.getX() * vertices.at(nextIndex).getY()) - (v.getY() * vertices.at(nextIndex).getX());
+        }
+        return abs(area)/2;
     }
 
     double GeometricFigure::calcCircumferenceLength()
     {
-        return 0.0;
+        int nextIndex = 0;
+        double Circumference = 0;
+        for (Vertex v : vertices)
+        {
+            nextIndex++;
+            nextIndex %= vertices.size();
+            double dx = vertices.at(nextIndex).getX() - v.getX();
+            double dy = vertices.at(nextIndex).getY() - v.getY();
+            Circumference += sqrt(dx^2 + dy^2);
+        }
+        return Circumference;
     }
 
     int GeometricFigure::numberOfVertices()
     {
-        return 0;
+        return vertices.size();
     }
 
 } // namespace Geometry
