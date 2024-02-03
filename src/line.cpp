@@ -10,7 +10,7 @@ namespace Geometry
     double Geometry::Line::calcLength()
     {
         //d = √((x_2 - x_1)² + (y_2 - y_1)²)
-        double Length = sqrt(pow(end_point.getX() - start_point.getX()) + pow(end_point.getY() - start_point.getY()));
+        double Length = sqrt(pow(end_point.getX() - start_point.getX(),2) + pow(end_point.getY() - start_point.getY(),2));
         return Length;
     }
 
@@ -27,8 +27,8 @@ namespace Geometry
 
         // Sprawdź czy linie są równoległe
         if ((x1 - x2) * (y3 - y4) == (y1 - y2) * (x3 - x4)) {
-            std::cout << "Linie są równoległe, brak punktu przecięcia." << std::endl;
-            return intersection;
+            cout << "Lini(e są równoległe, brak punktu przecięcia." << endl;
+            return Vertex();
         }
 
         double x_cross= ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / ((x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4));

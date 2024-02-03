@@ -16,9 +16,9 @@ namespace Geometry
             {
                 if (v.getX() == d.getX() &&v.getY() == d.getY())
                 {
-                    first == true;
+                    first = true;
                     if (first)
-                        vertices.erase(vertices.begin() + indexToRemove);
+                        vertices.erase(vertices.begin() + index);
                 }
                 index++;
             }
@@ -58,7 +58,7 @@ namespace Geometry
             nextIndex %= vertices.size();
             double dx = vertices.at(nextIndex).getX() - v.getX();
             double dy = vertices.at(nextIndex).getY() - v.getY();
-            Circumference += sqrt(dx^2 + dy^2);
+            Circumference += sqrt( pow(dx,2) + pow(dy, 2));
         }
         return Circumference;
     }

@@ -8,8 +8,10 @@
  * @copyright Copyright (c) 2023
  * 
  */
+#pragma once
 #include <vector>
-
+#include <iostream>
+using namespace std;
 namespace Geometry {
     /**
      * @class Vertex
@@ -23,8 +25,8 @@ namespace Geometry {
         public:
             Vertex() : x(0.0), y(0.0) {}
             Vertex(double x, double y) : x(x), y(y) {}
-            double getX { return x; }
-            double getY { return y; }
+            double getX(){ return x; };
+            double getY(){ return y; };
     };
 
     class Line {
@@ -33,8 +35,8 @@ namespace Geometry {
         public:
             Line(Vertex st_pt, Vertex end_pt) : start_point(st_pt), end_point(end_pt) {}
             Line(double x1, double y1, double x2, double y2);
-            Verterx getStart() { return start_point; };
-            Verterx getEnd() { return end_point; };
+            Vertex getStart() { return start_point; };
+            Vertex getEnd() { return end_point; };
             double calcLength();
             Vertex calcCrosspoint(Line &secondLine);
             bool vertexOnLine(Vertex &vertex);
