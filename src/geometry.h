@@ -23,8 +23,8 @@ namespace Geometry {
         public:
             Vertex() : x(0.0), y(0.0) {}
             Vertex(double x, double y) : x(x), y(y) {}
-            double getX{ return x; }
-            double getY{ return y; }
+            double getX { return x; }
+            double getY { return y; }
     };
 
     class Line {

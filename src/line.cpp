@@ -37,5 +37,30 @@ namespace Geometry
         return cross;
     }
 
+    bool Line::vertexOnLine(Vertex& vertex)
+    {
+        double a = (end_point.getY() - start_point.getY()) / (end_point.getX() - start_point.getX());
+        double b = start_point.getY() - (a * start_point.getX()) ;
+        
+        if ((a * vertex.getX() + b) == vertex.getY())
+            return true;
+
+        const double epsilon = 1e-9;
+
+        // Sprawdź, czy punkt należy do przedziału na osi X
+        bool xInRange = (vertex.getX() >= std::min(start_point.getX(), end_point.getX()) - epsilon) &&
+            (vertex.getX() <= std::max(start_point.getX(), end_point.getX()) + epsilon);
+
+        // Sprawdź, czy punkt należy do przedziału na osi Y
+        bool yInRange = (vertex.getY() >= std::min(start_point.getY(), end_point.getY()) - epsilon) &&
+            (vertex.getY() <= std::max(start_point.getY(), end_point.getY()) + epsilon);
+
+        // Sprawdź, czy punkt leży na linii z uwzględnieniem marginesu błędu
+        if (xInRange && yInRange && fabs(a * vertex.getX() + b - vertex.getY()) < epsilon)
+            return true;
+
+        return false;
+    }
+
 } // namespace Geometry
 
