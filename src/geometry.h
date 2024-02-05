@@ -1,7 +1,7 @@
 /**
  * @file geometry.h
  * @author Wojciech Kubowicz, Damian Barczak, Maciej Wielgosz
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2023-12-20
  * 
@@ -11,6 +11,9 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <cmath>
+#define M_PI 3.14159265358979323846
+
 using namespace std;
 namespace Geometry {
     /**
@@ -49,10 +52,35 @@ namespace Geometry {
             void arangeVertices();
             void deleteDuplicateVertices();
         public:
-            GeometricFigure(Vertex vertices[], int len);
+            GeometricFigure(Vertex* vertices, int len);
             GeometricFigure(double **arr, int len);
             double calcArea();
             double calcCircumferenceLength();
             int numberOfVertices();
+    };
+    
+    class Circle: public GeometricFigure
+    {
+    private:
+        double radius;
+    public:
+        Circle(Vertex c, double r)
+            : GeometricFigure(&c, 1), radius(r)
+        {}
+
+        double calcArea();
+        double calcCircumferenceLength();
+    };
+    class Ellipse : public GeometricFigure
+    {
+    private:
+        double a;
+        double b;
+    public:
+        Ellipse(Vertex c,double a, double b);
+
+        double calcArea();
+        double calcCircumferenceLength();
+
     };
 } // namespace Geometry
