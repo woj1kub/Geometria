@@ -58,29 +58,30 @@ namespace Geometry {
             double calcCircumferenceLength();
             int numberOfVertices();
     };
-    
-    class Circle: public GeometricFigure
-    {
-    private:
-        double radius;
-    public:
-        Circle(Vertex c, double r)
-            : GeometricFigure(&c, 1), radius(r)
-        {}
-
-        double calcArea();
-        double calcCircumferenceLength();
-    };
-    class Ellipse : public GeometricFigure
+    class Ellipse
     {
     private:
         double a;
         double b;
+        Vertex center;
     public:
-        Ellipse(Vertex c,double a, double b);
-
+        Ellipse(Vertex c, double a, double b);
+        double getA() { return a; };
+        double getB() { return b; };
+        Vertex getCenter() { return center; };
         double calcArea();
-        double calcCircumferenceLength();
+        virtual double calcCircumferenceLength();
 
     };
+    class Circle: public Ellipse
+    {
+    public:
+        Circle(Vertex c, double r)
+            : Ellipse(c,r, r)
+        {}
+        double getRadius() { return Ellipse::getA(); };
+        Vertex getCenter() { return Ellipse::getCenter(); };
+        double calcCircumferenceLength();
+    };
+    
 } // namespace Geometry

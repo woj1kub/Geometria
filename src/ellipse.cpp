@@ -2,8 +2,8 @@
 namespace Geometry
 {
     Ellipse::Ellipse(Vertex c, double a, double b)
-        : GeometricFigure(&c, 1)
     {
+        center = c;
         if (a>b)
         {
             this->a = a;
@@ -23,10 +23,7 @@ namespace Geometry
 	}
 	double Ellipse::calcCircumferenceLength()
 	{
-		double Circumference = M_PI * a * b;
-		Circumference += pow(a - b, 2);
-		Circumference /= a + b;
-		Circumference *= 4;
+        double Circumference = M_PI* (3 * (a + b) / 2 - pow(a * b, 1 / 2));
 		return Circumference;
 	}
 }

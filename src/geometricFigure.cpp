@@ -63,10 +63,20 @@ namespace Geometry
 
     GeometricFigure::GeometricFigure(Vertex* vertices, int len)
     {
+        for (size_t i = 0; i < len; i++)
+            this->vertices.push_back(vertices[i]);
+        deleteDuplicateVertices();
+        arangeVertices();
     }
 
     GeometricFigure::GeometricFigure(double** arr, int len)
     {
+        vertices.resize(len);
+        for (int i = 0; i < len; ++i)
+            vertices.push_back(Vertex(arr[i][0], arr[i][1]));
+
+        deleteDuplicateVertices();
+        arangeVertices();
     }
 
     double GeometricFigure::calcArea()
