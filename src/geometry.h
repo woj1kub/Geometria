@@ -51,6 +51,7 @@ namespace Geometry {
             std::vector<Vertex> vertices;
             void arangeVertices();
             void deleteDuplicateVertices();
+            int orientation(Vertex p, Vertex q, Vertex r);
         public:
             GeometricFigure(Vertex* vertices, int len);
             GeometricFigure(double **arr, int len);

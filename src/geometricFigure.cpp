@@ -2,7 +2,7 @@
 
 namespace Geometry
 {
-    int orientation(Vertex p, Vertex q, Vertex r) {
+    int GeometricFigure::orientation(Vertex p, Vertex q, Vertex r) {
         double val = (q.getY() - p.getY()) * (r.getX() - q.getX()) - (q.getX() - p.getX()) * (r.getY() - q.getY());
         if (val == 0) return 0; // Kolinearne
         return (val > 0) ? 1 : 2; // Zgodnie lub przeciwnie do ruchu wskazówek zegara
