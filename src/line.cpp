@@ -62,5 +62,11 @@ namespace Geometry
         return false;
     }
 
+    std::ostream& operator<<(std::ostream& stream, const Line& line) {
+        stream << "Start point: " << line.start_point << ",\t";
+        stream << "End point: " << line.end_point;
+        return stream;
+    }
+
 } // namespace Geometry
 

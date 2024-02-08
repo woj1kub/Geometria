@@ -30,6 +30,7 @@ namespace Geometry {
             Vertex(double x, double y) : x(x), y(y) {}
             double getX(){ return x; };
             double getY(){ return y; };
+            friend std::ostream& operator<<(std::ostream& stream, const Vertex& vertex);
     };
 
     class Line {
@@ -43,6 +44,7 @@ namespace Geometry {
             double calcLength();
             Vertex calcCrosspoint(Line &secondLine);
             bool vertexOnLine(Vertex &vertex);
+            friend std::ostream& operator<<(std::ostream& stream, const Line& line);
 
     };
 
@@ -60,6 +62,7 @@ namespace Geometry {
             int numberOfVertices();
             bool addVertex(Vertex vertex);
             bool deleteVertex(int index);
+            friend std::ostream& operator<<(std::ostream& stream, const GeometricFigure& figure);
     };
     class Ellipse
     {

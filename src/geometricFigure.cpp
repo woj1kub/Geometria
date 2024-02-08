@@ -138,4 +138,14 @@ namespace Geometry
         return true;
     }
 
+    std::ostream& operator<<(std::ostream& stream, const GeometricFigure& figure) {
+        int index = 1;
+        for (auto &&i : figure.vertices)
+        {
+            stream << index << ": " << i << ",\t";
+            index++;
+        }
+        return stream;
+    }
+
 } // namespace Geometry
