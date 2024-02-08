@@ -112,4 +112,30 @@ namespace Geometry
         return vertices.size();
     }
 
+    bool GeometricFigure::addVertex(Vertex v) {
+        try
+        {
+            vertices.push_back(v);
+            deleteDuplicateVertices();
+            arangeVertices();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            return false;
+        }
+        return true;
+    }
+
+    bool GeometricFigure::deleteVertex(int index) {
+        if (numberOfVertices() < index || index < 0)
+        {
+            std::cerr << "Index out of range";
+            return false;
+        }
+        vertices.erase(vertices.begin() + index);
+        
+        return true;
+    }
+
 } // namespace Geometry

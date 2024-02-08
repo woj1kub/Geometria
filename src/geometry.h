@@ -57,6 +57,8 @@ namespace Geometry {
             double calcArea();
             double calcCircumferenceLength();
             int numberOfVertices();
+            bool addVertex(Vertex vertex);
+            bool deleteVertex(int index);
     };
     class Ellipse
     {
