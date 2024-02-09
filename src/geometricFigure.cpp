@@ -42,7 +42,24 @@ namespace Geometry
 
     void GeometricFigure::deleteDuplicateVertices()
     {
-        bool first = false;
+        vector<Vertex> uniVerteces;
+
+        for (Vertex& v : vertices)
+        {
+            bool isDub=false;
+            for (Vertex& u : uniVerteces)
+            {
+                if (v.getX()==u.getX() && v.getY()==v.getY())
+                {
+                    isDub = true;
+                    break;
+                }
+            }
+            if (!isDub)
+                uniVerteces.push_back(v);
+        }
+        vertices = uniVerteces;
+        /*bool first = false;
         int index = 0;
         for (Vertex v : vertices)
         {
@@ -52,17 +69,23 @@ namespace Geometry
                 {
                     if (first)
                         vertices.erase(vertices.begin() + index);
-            						first = true;
-    								}
+            		first = true;
+    			}
                 index++;
             }
             first = false;
             index = 0;
-        }
+        }*/
     }
 
     GeometricFigure::GeometricFigure(Vertex* vertices, int len)
     {
+        if (len < 3) {
+            cerr << "Geometric figure needs min 3 vertices";
+            return;
+        }
+        vertices.resize(len);
+
         for (size_t i = 0; i < len; i++)
             this->vertices.push_back(vertices[i]);
         deleteDuplicateVertices();
@@ -71,6 +94,10 @@ namespace Geometry
 
     GeometricFigure::GeometricFigure(double** arr, int len)
     {
+        if (len < 3){
+            cerr << "Geometric figure needs min 3 vertices";
+            return;
+        }
         vertices.resize(len);
         for (int i = 0; i < len; ++i)
             vertices.push_back(Vertex(arr[i][0], arr[i][1]));
@@ -100,9 +127,13 @@ namespace Geometry
         {
             nextIndex++;
             nextIndex %= vertices.size();
-            double dx = vertices.at(nextIndex).getX() - v.getX();
+            Line line(v, vertices.at(nextIndex));
+
+            /*double dx = vertices.at(nextIndex).getX() - v.getX();
             double dy = vertices.at(nextIndex).getY() - v.getY();
-            Circumference += sqrt( pow(dx,2) + pow(dy, 2));
+            Circumference += sqrt( pow(dx,2) + pow(dy, 2));*/
+            
+            Circumference += line.calcLength();
         }
         return Circumference;
     }

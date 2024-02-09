@@ -27,7 +27,7 @@ namespace Geometry
 
         // Sprawdź czy linie są równoległe
         if ((x1 - x2) * (y3 - y4) == (y1 - y2) * (x3 - x4)) {
-            cout << "Lini(e są równoległe, brak punktu przecięcia." << endl;
+            cout << "Linie są równoległe, brak punktu przecięcia." << endl;
             return Vertex();
         }
 
