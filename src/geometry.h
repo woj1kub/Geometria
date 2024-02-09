@@ -28,8 +28,8 @@ namespace Geometry {
         public:
             Vertex() : x(0.0), y(0.0) {}
             Vertex(double x, double y) : x(x), y(y) {}
-            double getX(){ return x; };
-            double getY(){ return y; };
+            double getX() const { return x; };
+            double getY() const { return y; };
             friend std::ostream& operator<<(std::ostream& stream, const Vertex& vertex);
     };
 
@@ -39,8 +39,8 @@ namespace Geometry {
         public:
             Line(Vertex st_pt, Vertex end_pt) : start_point(st_pt), end_point(end_pt) {}
             Line(double x1, double y1, double x2, double y2);
-            Vertex getStart() { return start_point; };
-            Vertex getEnd() { return end_point; };
+            Vertex getStart() const { return start_point; };
+            Vertex getEnd() const { return end_point; };
             double calcLength();
             Vertex calcCrosspoint(Line &secondLine);
             bool vertexOnLine(Vertex &vertex);
@@ -73,12 +73,16 @@ namespace Geometry {
         Vertex center;
     public:
         Ellipse(Vertex c, double a, double b);
-        double getA() { return a; };
-        double getB() { return b; };
-        Vertex getCenter() { return center; };
+        double getA() const { return a; };
+        double getB() const { return b; };
+        Vertex getCenter() const { return center; };
         double calcArea();
         virtual double calcCircumferenceLength();
-
+        
+        bool vertexIn(Vertex v);
+        bool vertexOn(Vertex v);
+        double arcOfCircumference(double angle);
+        double arcOfArea(double angle);
     };
     class Circle: public Ellipse
     {
@@ -86,11 +90,11 @@ namespace Geometry {
         Circle(Vertex c, double r)
             : Ellipse(c,r, r)
         {}
-        double getRadius() { return Ellipse::getA(); };
-        Vertex getCenter() { return Ellipse::getCenter(); };
+        double getRadius() const { return Ellipse::getA(); };
         double calcCircumferenceLength();
     };
     
+
     class Square : public GeometricFigure {
     private:
         static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
