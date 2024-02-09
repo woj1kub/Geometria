@@ -49,8 +49,9 @@ namespace Geometry {
     };
 
     class GeometricFigure {
-        private:
+        protected:
             std::vector<Vertex> vertices;
+        private:
             void arangeVertices();
             void deleteDuplicateVertices();
             int orientation(Vertex p, Vertex q, Vertex r);
@@ -90,4 +91,18 @@ namespace Geometry {
         double calcCircumferenceLength();
     };
     
+    class Square : public GeometricFigure {
+    private:
+        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+    public:
+        Square(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
+            if (len != 4) {
+                throw std::invalid_argument("Kwadrat musi sk³adaæ siê dok³adnie z 4 punktów.");
+            }
+        }
+        Square(double** arr, int len) : GeometricFigure(arr, len) {
+        }
+        bool isSquare() const;
+    };
+
 } // namespace Geometry
