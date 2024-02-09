@@ -105,4 +105,21 @@ namespace Geometry {
         bool isSquare() const;
     };
 
+    class Triangle : public GeometricFigure {
+    private:
+        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+    public:
+        /*Triangle(Vertex v1, Vertex v2, Vertex v3) {
+            vertices.push_back(v1);
+            vertices.push_back(v2);
+            vertices.push_back(v3);
+        }*/
+        Triangle(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
+            if (len != 3) {
+                throw std::invalid_argument("Trójk¹t musi sk³adaæ siê dok³adnie z 3 punktów.");
+            }
+        }
+        bool isTriangle() const;
+    };
+
 } // namespace Geometry
