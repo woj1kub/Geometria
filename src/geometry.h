@@ -122,4 +122,17 @@ namespace Geometry {
         bool isTriangle() const;
     };
 
+    class Rectangle : public GeometricFigure {
+    public:
+        Rectangle(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
+            if (len != 4) {
+                throw std::invalid_argument("Prostok¹t musi sk³adaæ siê dok³adnie z 4 punktów.");
+            }
+        }
+        bool isRectangle() const;
+
+    private:
+        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+    };
+
 } // namespace Geometry
