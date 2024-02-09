@@ -45,12 +45,12 @@ namespace Geometry
         return false;
     }
 
-    double Ellipse::arcOfCircumference(double angle)
+    double Ellipse::circumferenceOfArc(double angle)
     {
         return ((angle / 360) * calcCircumferenceLength());
     }
 
-    double Ellipse::arcOfArea(double angle)
+    double Ellipse::areaOfArc(double angle)
     {
         return ((angle / 360) * calcArea());
     }

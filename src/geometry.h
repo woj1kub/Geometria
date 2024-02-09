@@ -81,8 +81,8 @@ namespace Geometry {
         
         bool vertexIn(Vertex v);
         bool vertexOn(Vertex v);
-        double arcOfCircumference(double angle);
-        double arcOfArea(double angle);
+        double circumferenceOfArc(double angle);
+        double areaOfArc(double angle);
     };
     class Circle: public Ellipse
     {
