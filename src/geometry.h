@@ -56,6 +56,7 @@ namespace Geometry {
             void deleteDuplicateVertices();
             int orientation(Vertex p, Vertex q, Vertex r);
         public:
+            const vector<Vertex>& getVertices() const { return vertices; }
             GeometricFigure(Vertex* vertices, int len);
             GeometricFigure(double **arr, int len);
             double calcArea();
@@ -63,6 +64,7 @@ namespace Geometry {
             int numberOfVertices();
             bool addVertex(Vertex vertex);
             bool deleteVertex(int index);
+            static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
             friend std::ostream& operator<<(std::ostream& stream, const GeometricFigure& figure);
     };
     class Ellipse
@@ -94,49 +96,37 @@ namespace Geometry {
         double calcCircumferenceLength();
     };
     
-
-    class Square : public GeometricFigure {
-    private:
-        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+    class Rectangle : public GeometricFigure {
     public:
-        Square(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
-            if (len != 4) {
-                throw std::invalid_argument("Kwadrat musi sk³adaæ siê dok³adnie z 4 punktów.");
-            }
-        }
-        Square(double** arr, int len) : GeometricFigure(arr, len) {
-        }
+        Rectangle(Vertex* vertices, int len);
+        bool isRectangle() const;
+        double calcDiagonalLength() const;
+        Vertex calcCenter() const;
+    private:
+
+        double dotProduct(const Vertex& a1, const Vertex& a2, const Vertex& b1, const Vertex& b2) const;
+    };
+
+    class Square : public Rectangle {
+    private:
+
+    public:
+        Square(Vertex* vertices, int len);
         bool isSquare() const;
+        double calcCircumscribedCircleRadius() const;
+        double calcInscribedCircleRadius() const;
     };
 
     class Triangle : public GeometricFigure {
     private:
-        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+
     public:
-        /*Triangle(Vertex v1, Vertex v2, Vertex v3) {
-            vertices.push_back(v1);
-            vertices.push_back(v2);
-            vertices.push_back(v3);
-        }*/
-        Triangle(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
-            if (len != 3) {
-                throw std::invalid_argument("Trójk¹t musi sk³adaæ siê dok³adnie z 3 punktów.");
-            }
-        }
+        Triangle(Vertex* vertices, int len);
         bool isTriangle() const;
-    };
-
-    class Rectangle : public GeometricFigure {
-    public:
-        Rectangle(Vertex* vertices, int len) : GeometricFigure(vertices, len) {
-            if (len != 4) {
-                throw std::invalid_argument("Prostok¹t musi sk³adaæ siê dok³adnie z 4 punktów.");
-            }
-        }
-        bool isRectangle() const;
-
-    private:
-        static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+        double calcCircumscribedCircleRadius();
+        double calcInscribedCircleRadius();
+        Vertex calcCentroid() const;
+        double calcHeightRelativeToSideAB();
     };
 
 } // namespace Geometry
