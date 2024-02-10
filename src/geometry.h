@@ -129,4 +129,27 @@ namespace Geometry {
         double calcHeightRelativeToSideAB();
     };
 
+    class Rhombus : public GeometricFigure {
+    private:
+        static double calcSlope(const Vertex& v1, const Vertex& v2);
+        static bool areEqual(double a, double b, double tolerance = 1e-6);
+    public:
+        Rhombus(Vertex* vertices, int len);
+        bool isRhombus() const;
+        double calcDiagonalsRatio() const;
+    };
+
+    class Trapezoid : public GeometricFigure {
+    private:
+        // Funkcja pomocnicza do obliczania nachylenia miêdzy dwoma punktami
+        static double calcSlope(const Vertex& v1, const Vertex& v2);
+        // Funkcja do sprawdzania równoœci dwóch nachyleñ z pewn¹ tolerancj¹
+        static bool areEqual(double a, double b, double tolerance = 1e-6);
+    public:
+        Trapezoid(Vertex* vertices, int len);
+        bool isTrapezoid() const;
+        double calcMedianLength() const;
+        double calcHeight();
+    };
+
 } // namespace Geometry
