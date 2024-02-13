@@ -30,6 +30,7 @@ namespace Geometry {
             Vertex(double x, double y) : x(x), y(y) {}
             double getX() const { return x; };
             double getY() const { return y; };
+            friend std::ostream& operator<<(std::ostream& stream, const Vertex& vertex);
     };
 
     class Line {
@@ -38,21 +39,22 @@ namespace Geometry {
         public:
             Line(Vertex st_pt, Vertex end_pt) : start_point(st_pt), end_point(end_pt) {}
             Line(double x1, double y1, double x2, double y2);
-            Vertex getStart() { return start_point; };
-            Vertex getEnd() { return end_point; };
+            Vertex getStart() const { return start_point; };
+            Vertex getEnd() const { return end_point; };
             double calcLength();
             Vertex calcCrosspoint(Line &secondLine);
             bool vertexOnLine(Vertex &vertex);
+            friend std::ostream& operator<<(std::ostream& stream, const Line& line);
 
     };
 
     class GeometricFigure {
-        protected: 
+        protected:
             std::vector<Vertex> vertices;
         private:
-            
             void arangeVertices();
             void deleteDuplicateVertices();
+            int orientation(Vertex p, Vertex q, Vertex r);
         public:
             const vector<Vertex>& getVertices() const { return vertices; }
             GeometricFigure(Vertex* vertices, int len);
@@ -60,34 +62,40 @@ namespace Geometry {
             double calcArea();
             double calcCircumferenceLength();
             int numberOfVertices();
+            bool addVertex(Vertex vertex);
+            bool deleteVertex(int index);
             static double distance(const Vertex& v1, const Vertex& v2) { return sqrt(pow(v2.getX() - v1.getX(), 2) + pow(v2.getY() - v1.getY(), 2)); }
+            friend std::ostream& operator<<(std::ostream& stream, const GeometricFigure& figure);
     };
-    
-    class Circle: public GeometricFigure
-    {
-    private:
-        double radius;
-    public:
-        Circle(Vertex c, double r)
-            : GeometricFigure(&c, 1), radius(r)
-        {}
-
-        double calcArea();
-        double calcCircumferenceLength();
-    };
-    class Ellipse : public GeometricFigure
+    class Ellipse
     {
     private:
         double a;
         double b;
+        Vertex center;
     public:
-        Ellipse(Vertex c,double a, double b);
-
+        Ellipse(Vertex c, double a, double b);
+        double getA() const { return a; };
+        double getB() const { return b; };
+        Vertex getCenter() const { return center; };
         double calcArea();
-        double calcCircumferenceLength();
-
+        virtual double calcCircumferenceLength();
+        
+        bool vertexIn(Vertex v);
+        bool vertexOn(Vertex v);
+        double circumferenceOfArc(double angle);
+        double areaOfArc(double angle);
     };
-
+    class Circle: public Ellipse
+    {
+    public:
+        Circle(Vertex c, double r)
+            : Ellipse(c,r, r)
+        {}
+        double getRadius() const { return Ellipse::getA(); };
+        double calcCircumferenceLength();
+    };
+    
     class Rectangle : public GeometricFigure {
     public:
         Rectangle(Vertex* vertices, int len);
