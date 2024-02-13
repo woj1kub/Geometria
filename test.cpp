@@ -13,11 +13,25 @@ bool compareDoubles(double a, double b) {
     
 }
 
+void printTest(string description, bool result, double value, double expval) {
+    cout << description << " - ";
+    if (result)
+    {
+        cout << "PASS";
+    }
+    else{
+        cout << "FAIL";
+    }
+    cout << " - expected: " << expval;
+    cout << " - given: " << value << '\n';
+}
+
 void lineTestLength() {
     Line line(2.0, 2.0, 4.0, 4.0);
     double len = line.calcLength();
-    cout<<len<<endl;
-    cout<< "Line test for lenght: "<< compareDoubles(len, 2.828437)<<endl;
+    // cout<<len<<endl;
+    // cout<< "Line test for lenght: "<< compareDoubles(len, 2.828437)<<endl;
+    printTest("Line test for lenght", compareDoubles(len, 2.828437), len, 2.828437);
 }
 void lineTestCrossPoint() {
     Line line1(2.0, 2.0, 4.0, 4.0);
