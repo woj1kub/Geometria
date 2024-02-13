@@ -10,14 +10,14 @@ namespace Geometry
 		}
 	}
 
-    static double calcSlope(const Vertex& v1, const Vertex& v2) {
+    double Rhombus::calcSlope(const Vertex& v1, const Vertex& v2) {
         if (fabs(v2.getX() - v1.getX()) < std::numeric_limits<double>::epsilon()) {
             return std::numeric_limits<double>::infinity(); // Pionowa linia
         }
         return (v2.getY() - v1.getY()) / (v2.getX() - v1.getX());
     }
 
-    static bool areEqual(double a, double b, double tolerance = 1e-6) {
+    bool Rhombus::areEqual(double a, double b, double tolerance) {
         return fabs(a - b) < tolerance;
     }
 

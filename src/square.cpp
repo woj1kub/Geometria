@@ -37,15 +37,7 @@ namespace Geometry
         return true;
     }
 
-    Vertex Square::calcCenter() const {
-        double centerX = (vertices[0].getX() + vertices[2].getX()) / 2.0;
-        double centerY = (vertices[0].getY() + vertices[2].getY()) / 2.0;
-        return Vertex(centerX, centerY);
-    }
-
-    double Square::calcDiagonalLength() const {
-        return distance(vertices[0], vertices[2]);
-    }
+    
 
     // Metoda obliczaj¹ca promieñ okrêgu opisanego na kwadracie
     double Square::calcCircumscribedCircleRadius() const {

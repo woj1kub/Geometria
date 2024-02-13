@@ -26,7 +26,7 @@ namespace Geometry
         return (2 * area) / (base1 + base2);
     }
 
-    bool Trapezoid::areEqual(double a, double b, double tolerance = 1e-6) {
+    bool Trapezoid::areEqual(double a, double b, double tolerance) {
         return std::fabs(a - b) < tolerance;
     }
 
