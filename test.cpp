@@ -29,8 +29,6 @@ void printTest(string description, bool result, double value, double expval) {
 void lineTestLength() {
     Line line(2.0, 2.0, 4.0, 4.0);
     double len = line.calcLength();
-    // cout<<len<<endl;
-    // cout<< "Line test for lenght: "<< compareDoubles(len, 2.828437)<<endl;
     printTest("Line test for lenght", compareDoubles(len, 2.828437), len, 2.828437);
 }
 void lineTestCrossPoint() {
@@ -47,10 +45,30 @@ void lineTestVertexOnLine() {
 
 }
 
+void triangleTestIsTraingle() {
+    Vertex v[] = {Vertex(1,0), Vertex(2,0), Vertex(3,0)};
+    Triangle t(v, 3);
+    printTest("Triangle test is Triangle - not triangle", t.isTriangle() == false ? true : false, 0,0);
+    Vertex v2[] = {Vertex(0,0), Vertex(2,0), Vertex(0,2)};
+    Triangle t2(v2, 3);
+    printTest("Triangle test is Triangle - is triangle", t2.isTriangle() == true ? true : false, 0,0);
+}
+
+void triangleTestArea() {
+    Vertex v[] = {Vertex(0,0), Vertex(2,0), Vertex(0,2)};
+    Triangle t(v, 3);
+    printTest("Triangle test area", compareDoubles(t.calcArea(), 2.0), t.calcArea(), 2.0);
+}
+
 int main(int argc, char const *argv[])
 {
+    // Line tests
     lineTestLength();
     lineTestCrossPoint();
     lineTestVertexOnLine();
+
+    // Triangle tests
+    triangleTestIsTraingle();
+    triangleTestArea();
     return 0;
 }
