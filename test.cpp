@@ -57,7 +57,7 @@ void testEllipse() {
             double expARC = exp *(60.0/360.0) ;
             double calARC = E.areaOfArc(60);
             bool resultARC = compareDoubles(expARC, calARC);
-            printTest("Ellipse test for area length - arc", result, calARC, expARC);
+            printTest("Ellipse test for area length - arc", resultARC, calARC, expARC);
         }
     }
 
@@ -70,7 +70,7 @@ void testEllipse() {
             double expARC = exp * (60.0 / 360.0);
             double calARC = E.circumferenceOfArc(60);
             bool resultARC = compareDoubles(expARC, calARC);
-            printTest("Ellipse test for circumference length - arc", result, calARC, expARC);
+            printTest("Ellipse test for circumference length - arc", resultARC, calARC, expARC);
         }
     }
 
@@ -104,7 +104,7 @@ void testCircle() {
             double expARC = exp * (60.0 / 360.0);
             double calARC = C.areaOfArc(60);
             bool resultARC = compareDoubles(expARC, calARC);
-            printTest("Circle test for area length - arc", result, calARC, expARC);
+            printTest("Circle test for area length - arc", resultARC, calARC, expARC);
         }
     }
 
@@ -117,7 +117,7 @@ void testCircle() {
             double expARC = exp * (60.0 / 360.0);
             double calARC = C.circumferenceOfArc(60);
             bool resultARC = compareDoubles(expARC, calARC);
-            printTest("Circle test for circumference length - arc", result, calARC, expARC);
+            printTest("Circle test for circumference length - arc", resultARC, calARC, expARC);
         }
     }
 
