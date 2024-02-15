@@ -59,23 +59,6 @@ namespace Geometry
                 uniVerteces.push_back(v);
         }
         vertices = uniVerteces;
-        /*bool first = false;
-        int index = 0;
-        for (Vertex v : vertices)
-        {
-            for (Vertex d : vertices)
-            {
-                if (v.getX() == d.getX() &&v.getY() == d.getY())
-                {
-                    if (first)
-                        vertices.erase(vertices.begin() + index);
-            		first = true;
-    			}
-                index++;
-            }
-            first = false;
-            index = 0;
-        }*/
     }
 
     GeometricFigure::GeometricFigure(Vertex* vertices, int len)
