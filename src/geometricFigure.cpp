@@ -49,7 +49,7 @@ namespace Geometry
             bool isDub=false;
             for (Vertex& u : uniVerteces)
             {
-                if (v.getX()==u.getX() && v.getY()==v.getY())
+                if (v.getX()==u.getX() && v.getY()==u.getY())
                 {
                     isDub = true;
                     break;
