@@ -3,7 +3,7 @@ namespace Geometry
 {
 	double Circle::calcCircumferenceLength()
 	{
-		double C = 2 * M_PI * Ellipse::getA();
+		double C = 2 * M_PI * A;
 		return C;
 	}
 }

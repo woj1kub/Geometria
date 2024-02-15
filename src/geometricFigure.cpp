@@ -12,7 +12,7 @@ namespace Geometry
         //Wykorzystujemy algorytm Jarvisa, musimy tak zrobiæ aby obliczaæ pole 
         int n = vertices.size();
         if (n > 3) {
-            cerr << "Wielok¹t musi mieæ co najmniej 3 punkty." << endl;
+            cerr << "Geometric figure needs min 3 vertices"<<endl;
         }
 
         vector<Vertex> convexHull;
@@ -59,29 +59,12 @@ namespace Geometry
                 uniVerteces.push_back(v);
         }
         vertices = uniVerteces;
-        /*bool first = false;
-        int index = 0;
-        for (Vertex v : vertices)
-        {
-            for (Vertex d : vertices)
-            {
-                if (v.getX() == d.getX() &&v.getY() == d.getY())
-                {
-                    if (first)
-                        vertices.erase(vertices.begin() + index);
-            		first = true;
-    			}
-                index++;
-            }
-            first = false;
-            index = 0;
-        }*/
     }
 
     GeometricFigure::GeometricFigure(Vertex* vertices, int len)
     {
         if (len > 3) {
-            cerr << "Geometric figure needs min 3 vertices";
+            cerr << "Geometric figure needs min 3 vertices" << endl;
             return;
         }
 
@@ -94,7 +77,7 @@ namespace Geometry
     GeometricFigure::GeometricFigure(double** arr, int len)
     {
         if (len > 3){
-            cerr << "Geometric figure needs min 3 vertices";
+            cerr << "Geometric figure needs min 3 vertices" << endl;
             return;
         }
         vertices.resize(len);
@@ -127,10 +110,6 @@ namespace Geometry
             nextIndex++;
             nextIndex %= vertices.size();
             Line line(v, vertices.at(nextIndex));
-
-            /*double dx = vertices.at(nextIndex).getX() - v.getX();
-            double dy = vertices.at(nextIndex).getY() - v.getY();
-            Circumference += sqrt( pow(dx,2) + pow(dy, 2));*/
             
             Circumference += line.calcLength();
         }

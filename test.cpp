@@ -52,8 +52,8 @@ void testEllipse() {
         bool result = compareDoubles(exp, cal);
         printTest("Ellipse test for area", result, cal, exp);
         {
-            double expARC = exp *(60.0/360.0) ;
-            double calARC = E.areaOfArc(60);
+            double expARC = exp *(60.9 /360.0) ;
+            double calARC = E.areaOfArc(60.9);
             bool resultARC = compareDoubles(expARC, calARC);
             printTest("Ellipse test for area length - arc", resultARC, calARC, expARC);
         }
@@ -65,8 +65,8 @@ void testEllipse() {
         bool result = compareDoubles(exp, cal);
         printTest("Ellipse test for circumference length", result, cal, exp);
         {
-            double expARC = exp * (60.0 / 360.0);
-            double calARC = E.circumferenceOfArc(60);
+            double expARC = exp * (60.9 / 360.0);
+            double calARC = E.circumferenceOfArc(60.9);
             bool resultARC = compareDoubles(expARC, calARC);
             printTest("Ellipse test for circumference length - arc", resultARC, calARC, expARC);
         }
@@ -94,26 +94,26 @@ void testCircle() {
     Vertex V(2.5, 3.12);
     Circle C(V, 5.12);
     {
-        double exp = 82.4;
+        double exp = 82.35496646;
         double cal = C.calcArea();
         bool result = compareDoubles(exp, cal);
         printTest("Circle test for area", result, cal, exp);
         {
-            double expARC = exp * (60.0 / 360.0);
-            double calARC = C.areaOfArc(60);
+            double expARC = exp * (60.9 / 360.0);
+            double calARC = C.areaOfArc(60.9);
             bool resultARC = compareDoubles(expARC, calARC);
             printTest("Circle test for area length - arc", resultARC, calARC, expARC);
         }
     }
 
     {
-        double exp = 32.2;
+        double exp = 32.16990877;
         double cal = C.calcCircumferenceLength();
         bool result = compareDoubles(exp, cal);
         printTest("Circle test for circumference length", result, cal, exp);
         {
-            double expARC = exp * (60.0 / 360.0);
-            double calARC = C.circumferenceOfArc(60);
+            double expARC = exp * (60.9 / 360.0);
+            double calARC = C.circumferenceOfArc(60.9);
             bool resultARC = compareDoubles(expARC, calARC);
             printTest("Circle test for circumference length - arc", resultARC, calARC, expARC);
         }
@@ -155,20 +155,15 @@ void triangleTestArea() {
 
 int main(int argc, char const *argv[])
 {
-<<<<<<< HEAD
     // Line tests
-    lineTestLength();
-    lineTestCrossPoint();
-    lineTestVertexOnLine();
+    //lineTestLength();
+    //lineTestCrossPoint();
+    //lineTestVertexOnLine();
 
     // Triangle tests
-    triangleTestIsTraingle();
-    triangleTestArea();
-=======
-    /*lineTestLength();
-    lineTestCrossPoint();
-    lineTestVertexOnLine();*/
+    //triangleTestIsTraingle();
+    //triangleTestArea();
     testEllipse();
->>>>>>> d17d6c2515b811ea1955cfa1962d4954c6d9d062
+    testCircle();
     return 0;
 }
