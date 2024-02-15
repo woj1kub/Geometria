@@ -12,7 +12,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#define M_PI 3.14159265358979323846
+#define M_PI 3.141592
 
 using namespace std;
 namespace Geometry {
@@ -69,14 +69,14 @@ namespace Geometry {
     };
     class Ellipse
     {
-    private:
-        double a;
-        double b;
+    protected:
+        double A;
+        double B;
         Vertex center;
     public:
         Ellipse(Vertex c, double a, double b);
-        double getA() const { return a; };
-        double getB() const { return b; };
+        double getA() const { return A; };
+        double getB() const { return B; };
         Vertex getCenter() const { return center; };
         double calcArea();
         virtual double calcCircumferenceLength();
@@ -85,6 +85,7 @@ namespace Geometry {
         bool vertexOn(Vertex v);
         double circumferenceOfArc(double angle);
         double areaOfArc(double angle);
+        friend std::ostream& operator<<(std::ostream& stream, const Ellipse& figure);
     };
     class Circle: public Ellipse
     {
@@ -92,7 +93,7 @@ namespace Geometry {
         Circle(Vertex c, double r)
             : Ellipse(c,r, r)
         {}
-        double getRadius() const { return Ellipse::getA(); };
+        double getRadius() const { return A; };
         double calcCircumferenceLength();
     };
     
