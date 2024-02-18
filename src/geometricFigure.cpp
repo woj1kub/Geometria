@@ -90,6 +90,10 @@ namespace Geometry
 
     double GeometricFigure::calcArea()
     {
+        if (numberOfVertices() < 3) {
+            cerr << "Geometric figure needs min 3 vertices to calculate area" << endl;
+            return;
+        }
         int nextIndex = 0;
         double area = 0;
         for (Vertex v : vertices)
@@ -103,6 +107,10 @@ namespace Geometry
 
     double GeometricFigure::calcCircumferenceLength()
     {
+        if (numberOfVertices() < 3) {
+            cerr << "Geometric figure needs min 3 vertices to calculate Circumference" << endl;
+            return;
+        }
         int nextIndex = 0;
         double Circumference = 0;
         for (Vertex v : vertices)
