@@ -153,6 +153,65 @@ void triangleTestArea() {
     printTest("Triangle test area", compareDoubles(t.calcArea(), 2.0), t.calcArea(), 2.0);
 }
 
+void squareTest() {
+    Vertex v[] = { Vertex(0,0), Vertex(2,0), Vertex(2,2), Vertex(0,2) };
+    Square s(v, 4);
+    bool boolResult = s.isSquare();
+    printTest("Square test is Square - is Square", boolResult == 1, boolResult, 1);
+    Vertex v2[] = { Vertex(0,0), Vertex(4,0), Vertex(2,2), Vertex(0,2) };
+    Square s2(v2, 4);
+    boolResult = s2.isSquare();
+    printTest("Square test is Square - not Square", boolResult == 0, boolResult, 0);
+    double doubleResult = s.calcArea();
+    printTest("Square test for calc area", doubleResult == 4, doubleResult, 4);
+    doubleResult = s.calcCircumferenceLength();
+    printTest("Square test for calc circumference", doubleResult == 8, doubleResult, 8);
+    //Vertex vertexResult = s.calcCenter();
+    //printTest("Square test fo calc center", vertexResult == (1, 1), vertexResult, 8);
+    doubleResult = s.calcCircumscribedCircleRadius();
+    printTest("Square test for calc circumscribed circle radius", compareDoubles(1.41421, doubleResult), doubleResult, 1.41421);
+    doubleResult = s.calcInscribedCircleRadius();
+    printTest("Square test for calc inscribed circle radius", compareDoubles(1, doubleResult), doubleResult, 1);
+    doubleResult = s.calcDiagonalLength();
+    printTest("Square test for calc diagonal lenght", compareDoubles(2.828427, doubleResult), doubleResult, 2.828427);
+}
+
+void rhombTest() {
+    Vertex v[] = { Vertex(0,0), Vertex(3,4), Vertex(5,0), Vertex(8,4) };
+    Rhombus r(v, 4);
+    bool boolResult = r.isRhombus();
+    printTest("Rhombus test is Rhombus - is Rhombus", boolResult == 1, boolResult, 1);
+    Vertex v2[] = { Vertex(0,0), Vertex(2,0), Vertex(3,2), Vertex(1,2) };
+    Rhombus r2(v2, 4);
+    boolResult = r2.isRhombus();
+    printTest("Rhombus test is Rhombus - not Rhombus", boolResult == 0, boolResult, 0);
+    double doubleResult = r.calcArea();
+    printTest("Rhombus test for calc area", compareDoubles(20, doubleResult), doubleResult, 20);
+    doubleResult = r.calcCircumferenceLength();
+    printTest("Rhombus test for calc circumference lenght", compareDoubles(20, doubleResult), doubleResult, 20);
+    doubleResult = r.calcDiagonalsRatio();
+    printTest("Rhombus test for calc diagonal ratio", compareDoubles(2, doubleResult), doubleResult, 2);
+}
+
+void trapezoidTest() {
+    Vertex v[] = { Vertex(0,0), Vertex(1,2), Vertex(4,0), Vertex(3,2) };
+    Trapezoid t(v, 4);
+    bool boolResult = t.isTrapezoid();
+    printTest("Trapezoid test is Trapezoid - is Trapezoid", boolResult == 1, boolResult, 1);
+    Vertex v2[] = { Vertex(0,0), Vertex(1,2), Vertex(4,0), Vertex(4,3) };
+    Trapezoid t2(v2, 4);
+    boolResult = t2.isTrapezoid();
+    printTest("Trapezoid test is Trapezoid - not Trapezoid", boolResult == 0, boolResult, 0);
+    double doubleResult = t.calcArea();
+    printTest("Trapezoid test for calc area", compareDoubles(6, doubleResult), doubleResult, 6);
+    doubleResult = t.calcHeight();
+    printTest("Trapezoid test for height", compareDoubles(2, doubleResult), doubleResult, 2);
+    doubleResult = t.calcCircumferenceLength();
+    printTest("Trapezoid test for circumference lenght", compareDoubles(10.47214, doubleResult), doubleResult, 10.47214);
+    doubleResult = t.calcMedianLength();
+    printTest("Trapezoid test for median lenght", compareDoubles(3, doubleResult), doubleResult, 3);
+}
+
 int main(int argc, char const *argv[])
 {
     // Line tests
@@ -165,5 +224,8 @@ int main(int argc, char const *argv[])
     //triangleTestArea();
     testEllipse();
     testCircle();
+    squareTest();
+    rhombTest();
+    trapezoidTest();
     return 0;
 }
