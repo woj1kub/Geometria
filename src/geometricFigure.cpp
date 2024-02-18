@@ -11,7 +11,7 @@ namespace Geometry
     {
         //Wykorzystujemy algorytm Jarvisa, musimy tak zrobiæ aby obliczaæ pole 
         int n = vertices.size();
-        if (n > 3) {
+        if (n < 3) {
             cerr << "Geometric figure needs min 3 vertices"<<endl;
         }
 
@@ -63,7 +63,7 @@ namespace Geometry
 
     GeometricFigure::GeometricFigure(Vertex* vertices, int len)
     {
-        if (len > 3) {
+        if (len < 3) {
             cerr << "Geometric figure needs min 3 vertices" << endl;
             return;
         }
@@ -76,7 +76,7 @@ namespace Geometry
 
     GeometricFigure::GeometricFigure(double** arr, int len)
     {
-        if (len > 3){
+        if (len < 3){
             cerr << "Geometric figure needs min 3 vertices" << endl;
             return;
         }
