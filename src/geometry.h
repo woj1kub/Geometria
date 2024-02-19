@@ -12,7 +12,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#define M_PI = 3.141592;
+#define M_PIA 3.141592
 
 using namespace std;
 namespace Geometry

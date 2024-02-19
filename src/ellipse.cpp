@@ -25,13 +25,13 @@ namespace Geometry
     
     double Ellipse::calcArea()
 	{
-		double area = M_PI * A * B;
+		double area = M_PIA * A * B;
 		return  area;
 	}
 	double Ellipse::calcCircumferenceLength()
 	{
         double h = pow(A - B, 2) / pow(A + B, 2);
-        double Circumference = M_PI * (A + B) * (1 + ((3 * h) / (10 + sqrt(4 - 3 * h))));
+        double Circumference = M_PIA * (A + B) * (1 + ((3 * h) / (10 + sqrt(4 - 3 * h))));
 		return Circumference;
 	}
 
