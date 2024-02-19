@@ -2,8 +2,8 @@
  * @file geometry.h
  * @author Wojciech Kubowicz, Damian Barczak, Maciej Wielgosz
  * @brief
- * @version 0.1
- * @date 2023-12-20
+ * @version 1.0
+ * @date 2024-02-18
  * 
  * @copyright Copyright (c) 2023
  * 
@@ -16,12 +16,6 @@
 
 using namespace std;
 namespace Geometry {
-    /**
-     * @class Vertex
-     * @brief Base for all geometric figures
-     *
-     * This class represents singular point in 2d geometric figure
-     */
     class Vertex {
         private:
             double x, y;
