@@ -37,12 +37,14 @@ void lineTestCrossPoint() {
     Line line2(4.0, 2.0, 2.0, 4.0);
     Vertex pointT(3.0, 3.0);
     Vertex pointCalc = line1.calcCrosspoint(line2);
-    cout << "Line test for Cross Point: " << ((pointCalc.getX()==pointT.getX()) && (pointCalc.getY() == pointT.getY())) << endl;
+    // cout << "Line test for Cross Point: " << ((pointCalc.getX()==pointT.getX()) && (pointCalc.getY() == pointT.getY())) << endl;
+    printTest("Line test for Cross Point", ((pointCalc.getX()==pointT.getX()) && (pointCalc.getY() == pointT.getY())), 1, 1);
 }
 void lineTestVertexOnLine() {
     Line line(2.0, 2.0, 4.0, 4.0);
     Vertex point(3.0, 3.0);
-    cout << "Line test for Vertex On Line: " << line.vertexOnLine(point) << endl;
+    // cout << "Line test for Vertex On Line: " << line.vertexOnLine(point) << endl;
+    printTest("Line test for Vertex On Line", line.vertexOnLine(point), line.vertexOnLine(point), 1);
 }
 void testEllipse() {
     Vertex V(2.5,3.12);
@@ -246,18 +248,25 @@ void rectangleTestCenterpoint() {
 int main(int argc, char const *argv[])
 {
     // Line tests
-    //lineTestLength();
-    //lineTestCrossPoint();
-    //lineTestVertexOnLine();
+    lineTestLength();
+    lineTestCrossPoint();
+    lineTestVertexOnLine();
 
     // Triangle tests
-    //triangleTestIsTraingle();
-    //triangleTestArea();
-    // testEllipse();
-    // testCircle();
-    // squareTest();
-    // rhombTest();
-    // trapezoidTest();
+    triangleTestIsTraingle();
+    triangleTestArea();
+
+    // Ellips tests
+    testEllipse();
+    testCircle();
+
+    squareTest();
+
+    rhombTest();
+
+    trapezoidTest();
+
+    // Rectangle tests
     rectangleTestIsRectangle();
     rectangleTestArea();
     rectangleTestDiagonalLength();
