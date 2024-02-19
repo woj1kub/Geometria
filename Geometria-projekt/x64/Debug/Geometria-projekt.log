@@ -1,0 +1,22 @@
+﻿  ellipse.cpp
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(28,17): error C2059: błąd składniowy: „=”
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(28,22): error C2100: niedozwolony operator pośredni
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(28,26): warning C4552: „*”: Wynik wyrażenia nie jest używany
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(34,32): error C2059: błąd składniowy: „=”
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(34,37): error C2100: niedozwolony operator pośredni
+C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp(34,47): warning C4552: „*”: Wynik wyrażenia nie jest używany
+  geometricFigure.cpp
+C:\Users\macie\source\repos\woj1kub\Geometria\src\geometricFigure.cpp(13,15): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\macie\source\repos\woj1kub\Geometria\src\geometricFigure.cpp(129,29): warning C4267: "return": konwersja z "size_t" do "int", możliwa utrata danych
+  circle.cpp
+C:\Users\macie\source\repos\woj1kub\Geometria\src\circle.cpp(6,18): error C2059: błąd składniowy: „=”
+C:\Users\macie\source\repos\woj1kub\Geometria\src\circle.cpp(6,23): error C2100: niedozwolony operator pośredni
+  line.cpp
+  Rectangle.cpp
+  rhombus.cpp
+  square.cpp
+  trapezoid.cpp
+  triangle.cpp
+  vertex.cpp
+  test.cpp
+  Generowanie kodu...
