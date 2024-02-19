@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\src\circle.cpp" />
+    <ClCompile Include="..\src\ellipse.cpp" />
+    <ClCompile Include="..\src\geometricFigure.cpp" />
+    <ClCompile Include="..\src\line.cpp" />
+    <ClCompile Include="..\src\Rectangle.cpp" />
+    <ClCompile Include="..\src\rhombus.cpp" />
+    <ClCompile Include="..\src\square.cpp" />
+    <ClCompile Include="..\src\trapezoid.cpp" />
+    <ClCompile Include="..\src\triangle.cpp" />
+    <ClCompile Include="..\src\vertex.cpp" />
+    <ClCompile Include="..\test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\geometry.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,23 +143,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\main.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\geometricFigure.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\circle.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\line.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\Rectangle.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\rhombus.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\square.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\trapezoid.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\triangle.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\vertex.cpp" />
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\geometry.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

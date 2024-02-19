@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Pliki źródłowe">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Pliki nagłówkowe">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -15,45 +11,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\test.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\line.cpp">
+    <ClCompile Include="..\main.cpp">
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\geometricFigure.cpp">
+    <ClCompile Include="..\test.cpp">
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\circle.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\circle.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\ellipse.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\ellipse.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\square.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\geometricFigure.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\triangle.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\line.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\vertex.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\Rectangle.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\Rectangle.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\rhombus.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\rhombus.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\square.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\trapezoid.cpp">
-      <Filter>Pliki zasobów</Filter>
+    <ClCompile Include="..\src\trapezoid.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\triangle.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vertex.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\macie\source\repos\woj1kub\Geometria\src\geometry.h">
+    <ClInclude Include="..\src\geometry.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
