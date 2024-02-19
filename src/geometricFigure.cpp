@@ -92,7 +92,7 @@ namespace Geometry
     {
         if (numberOfVertices() < 3) {
             cerr << "Geometric figure needs min 3 vertices to calculate area" << endl;
-            return;
+            return -1;
         }
         int nextIndex = 0;
         double area = 0;
@@ -109,7 +109,7 @@ namespace Geometry
     {
         if (numberOfVertices() < 3) {
             cerr << "Geometric figure needs min 3 vertices to calculate Circumference" << endl;
-            return;
+            return -1;
         }
         int nextIndex = 0;
         double Circumference = 0;

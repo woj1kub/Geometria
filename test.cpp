@@ -14,14 +14,15 @@ bool compareDoubles(double a, double b) {
 }
 
 void printTest(string description, bool result, double value, double expval) {
-    cout << description << " - ";
     if (result)
     {
-        cout << "PASS";
+        cout << "PASS - ";
     }
     else{
-        cout << "FAIL";
+        cout << "FAIL - ";
     }
+    cout << description;
+
     cout << " - expected: " << expval;
     cout << " - given: " << value << '\n';
 }

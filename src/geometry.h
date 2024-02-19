@@ -12,7 +12,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-constexpr auto M_PI = 3.141592;
+// constexpr auto M_PI = 3.141592;
 
 using namespace std;
 namespace Geometry {
@@ -142,9 +142,9 @@ namespace Geometry {
 
     class Trapezoid : public GeometricFigure {
     private:
-        // Funkcja pomocnicza do obliczania nachylenia miêdzy dwoma punktami
+        // Funkcja pomocnicza do obliczania nachylenia miï¿½dzy dwoma punktami
         static double calcSlope(const Vertex& v1, const Vertex& v2);
-        // Funkcja do sprawdzania równoœci dwóch nachyleñ z pewn¹ tolerancj¹
+        // Funkcja do sprawdzania rï¿½wnoï¿½ci dwï¿½ch nachyleï¿½ z pewnï¿½ tolerancjï¿½
         static bool areEqual(double a, double b, double tolerance = 1e-6);
     public:
         Trapezoid(Vertex* vertices, int len);
