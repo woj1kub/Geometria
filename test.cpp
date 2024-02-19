@@ -142,10 +142,10 @@ void testCircle() {
 void triangleTestIsTraingle() {
     Vertex v[] = {Vertex(1,0), Vertex(2,0), Vertex(3,0)};
     Triangle t(v, 3);
-    printTest("Triangle test is Triangle - not triangle", t.isTriangle() == false ? true : false, 0,0);
+    printTest("Triangle test is Triangle - not triangle", t.isTriangle() == false ? true : false, t.isTriangle(),0);
     Vertex v2[] = {Vertex(0,0), Vertex(2,0), Vertex(0,2)};
     Triangle t2(v2, 3);
-    printTest("Triangle test is Triangle - is triangle", t2.isTriangle() == true ? true : false, 0,0);
+    printTest("Triangle test is Triangle - is triangle", t2.isTriangle() == true ? true : false, t2.isTriangle(),1);
 }
 
 void triangleTestArea() {
@@ -213,6 +213,36 @@ void trapezoidTest() {
     printTest("Trapezoid test for median lenght", compareDoubles(3, doubleResult), doubleResult, 3);
 }
 
+void rectangleTestIsRectangle() {
+    Vertex v[] = {Vertex(0,0), Vertex(3,0), Vertex(0,2), Vertex(5,2)};
+    Rectangle r(v, 4);
+    printTest("Rectangle test is Rectangle - not Rectangle", r.isRectangle() == false ? true : false, r.isRectangle(),0);
+    Vertex v2[] = {Vertex(0,0), Vertex(3,0), Vertex(0,2), Vertex(3,2)};
+    Rectangle r2(v2, 4);
+    printTest("Rectangle test is Rectangle - is Rectangle", r2.isRectangle() == true ? true : false, r2.isRectangle(),1);
+}
+
+void rectangleTestArea() {
+    Vertex v[] = {Vertex(0,0), Vertex(3,0), Vertex(0,2), Vertex(3,2)};
+    Rectangle r(v, 4);
+    printTest("Rectangle test area", compareDoubles(r.calcArea(), 6.0), r.calcArea(), 6.0);
+}
+
+void rectangleTestDiagonalLength() {
+    Vertex v[] = {Vertex(0,0), Vertex(3,0), Vertex(0,2), Vertex(3,2)};
+    Rectangle r(v, 4);
+    printTest("Rectangle diagonal length", compareDoubles(r.calcDiagonalLength(), sqrt(13)), r.calcDiagonalLength(), sqrt(13));
+}
+
+void rectangleTestCenterpoint() {
+    Vertex v[] = {Vertex(0,0), Vertex(4,0), Vertex(0,2), Vertex(4,2)};
+    Vertex c(2,1);
+    Rectangle r(v, 4);
+    Vertex wvertex = r.calcCenter();
+    bool w = compareDoubles(wvertex.getX(), c.getX()) && compareDoubles(wvertex.getY(), c.getY());
+    printTest("Rectangle center point", w, w, 1);
+}
+
 int main(int argc, char const *argv[])
 {
     // Line tests
@@ -223,10 +253,14 @@ int main(int argc, char const *argv[])
     // Triangle tests
     //triangleTestIsTraingle();
     //triangleTestArea();
-    testEllipse();
-    testCircle();
-    squareTest();
-    rhombTest();
-    trapezoidTest();
+    // testEllipse();
+    // testCircle();
+    // squareTest();
+    // rhombTest();
+    // trapezoidTest();
+    rectangleTestIsRectangle();
+    rectangleTestArea();
+    rectangleTestDiagonalLength();
+    rectangleTestCenterpoint();
     return 0;
 }
